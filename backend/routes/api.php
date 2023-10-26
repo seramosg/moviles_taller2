@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/guests', [GuestsController::class, 'store']);
+Route::post('/guests', [GuestsController::class, 'store']);
