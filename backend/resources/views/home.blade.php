@@ -21,6 +21,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Edad</th>
+                                <th>Hora de ingreso</th>
                                 <th>Cantidad de acompañantes</th>
                             </tr>
                         </thead>
