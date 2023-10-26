@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuestsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/guests', [GuestsController::class, 'store'])->name('guests.store');
 });
