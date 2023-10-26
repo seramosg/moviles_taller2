@@ -15,7 +15,8 @@ class GuestsController extends Controller
      */
     public function index()
     {
-        //
+        $guest = Guests::all();
+        return view('home', compact('guest'));
     }
 
     /**
