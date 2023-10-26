@@ -43,6 +43,10 @@ class GuestsController extends Controller
         $guest->companions = $request->companions;
         $guest->hour = Carbon::now();
         $guest->save();
+        return response(
+            //retornar un mensaje de guardado exitosamente
+            "guest saved successfully",
+        );
     }
 
     /**

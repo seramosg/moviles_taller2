@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/guests', [GuestsController::class, 'store'])->name('guests.store');
-});
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
