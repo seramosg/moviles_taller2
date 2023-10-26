@@ -23,4 +23,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\GuestsController::class, 'index'])-> name('home');
+//Ruta para eliminar usuario con nombre guests.destroy
+Route::delete('/home/{id}', [GuestsController::class, 'destroy'])->name('guests.destroy');

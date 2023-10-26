@@ -16,7 +16,7 @@ class GuestsController extends Controller
     public function index()
     {
         $guest = Guests::all();
-        return view('home', compact('guest'));
+        return view('home',["guests" => $guest]);
     }
 
     /**
@@ -92,6 +92,8 @@ class GuestsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $guest = Guests::find($id);
+        $guest -> delete();
+        return redirect()->route('home')->with('success', 'Invitado eliminado exitosamente!');;
     }
 }
