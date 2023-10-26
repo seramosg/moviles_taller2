@@ -1,30 +1,31 @@
 import { StyleSheet, Text, View, TextInput, Button, Alert} from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Formulario() {
     const [name, setName] = useState('');
     // Creamos el estado para el campo de apellido
-    const [lastname, setLastName] = useState('');
+    const [last_name, setLast_Name] = useState('');
     // Creamos el estado para el campo de edad
     const [age, setAge] = useState('');
 
     // Creamos el estado para el campo de numero de invitados
-    const [guestNumber, setguestNumber] = useState('');
+    const [companions, setCompanions] = useState('');
 
     const handleLogin = () => {
-        axios.post('http://172.20.10.2:8000/api/users', {
+        axios.post('http://172.20.10.3:8000/api/guests', {
             name: name,
-            lastname: lastname,
+            last_name: last_name,
             age: age,
-            guestNumber: guestNumber
+            companions: companions
         })
         .then(function (response) {
             // Alerta de inicio de sesión exitoso en web
             Alert.alert('Registro exitoso');
-            // navigation.navigate('Home');
+            setName('');
+            setLast_Name('');
+            setAge('');
+            setguestNumber('');
         })
         .catch(function (error) {
             console.log(error);
@@ -32,20 +33,20 @@ export default function Formulario() {
     }
 
   return (
-    <View>
-       <Text style={{ fontSize: 30, marginBottom: 40 }}>Formulario</Text>
+    <View style={styles.container}>
+       <Text style={{ fontSize: 30, marginBottom: 40 }}>Formulario de ingreso</Text>
 
         {/* Campo para ingresar el nombre */}
-       <TextInput placeholder='Ingrese su nombre' onChangeText={(text) =>setName(text)} ></TextInput>
+       <TextInput placeholder='Ingrese su nombre' onChangeText={(text) =>setName(text)} style={styles.input}></TextInput>
         
         {/* Campo para ingresar el apellido */}
-       <TextInput placeholder='Ingrese sus apellidos' onChangeText={(text) =>setLastName(text)} ></TextInput>
+       <TextInput placeholder='Ingrese sus apellidos' onChangeText={(text) =>setLast_Name(text)} style={styles.input}></TextInput>
         
         {/* Campo para ingresar el edad */}
-       <TextInput placeholder='Ingrese su edad' onChangeText={(text) =>setAge(text)} keyboardType='numeric' ></TextInput>
+        <TextInput placeholder='Ingrese su edad' onChangeText={(text) =>setAge(text)} keyboardType='numeric' style={styles.input}></TextInput>
         
         {/* Campo para ingresar el edad */}
-       <TextInput placeholder='Ingrese el numero de invitados' onChangeText={(text) =>setguestNumber(text)} keyboardType='numeric' ></TextInput>
+       <TextInput placeholder='Ingrese cantidad de invitados' onChangeText={(text) =>setCompanions(text)} keyboardType='numeric' style={styles.input}></TextInput>
             
         {/* Botón para iniciar sesión */}
         <Button title='Registrarse' onPress={handleLogin}></Button>
@@ -53,4 +54,21 @@ export default function Formulario() {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    // Estilos para el contenedor
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    // Estilos para el campo de texto
+    input: {
+        height: 40,
+        width: 200,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
+})

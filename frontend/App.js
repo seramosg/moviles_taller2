@@ -6,6 +6,7 @@ import Formulario from './src/components/Formulario';
 export default function App() {
   return (
     <View style={styles.container}>
+      <Text style={{ fontSize: 30, marginBottom: 40, fontWeight: 'bold' }}>Bienvenido a la fiesta!</Text>
       <Formulario />
     </View>
   );
