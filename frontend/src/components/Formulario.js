@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function Formulario() {
+    // Creamos el estado para el campo de nombre
     const [name, setName] = useState('');
     // Creamos el estado para el campo de apellido
     const [last_name, setLast_Name] = useState('');
     // Creamos el estado para el campo de edad
     const [age, setAge] = useState('');
-
     // Creamos el estado para el campo de numero de invitados
     const [companions, setCompanions] = useState('');
 

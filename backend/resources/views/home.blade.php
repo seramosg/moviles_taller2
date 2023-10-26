@@ -33,7 +33,7 @@
                                     <td> {{ $guest->hour }} </td>
                                     <td> {{ $guest->companions }} </td>
                                     <td>
-                                        <form action="{{ route('guests.destroy', ['id' => $guest->id]) }}" method="POST">
+                                        <form action="{{ route('guests.destroy', $guest->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Eliminar</button>
