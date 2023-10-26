@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Guest;
+use App\Models\Guests;
 use Carbon\Carbon;
 
 class GuestsController extends Controller
@@ -36,7 +36,7 @@ class GuestsController extends Controller
      */
     public function store(Request $request)
     {
-        $guest = new Guest();
+        $guest = new Guests();
         $guest->name = $request->name;
         $guest->last_name = $request->last_name;
         $guest->age = $request->age;
