@@ -13,7 +13,7 @@ export default function Formulario() {
     const [companions, setCompanions] = useState('');
 
     const handleLogin = () => {
-        axios.post('http://192.168.1.8:8000/api/guests', {
+        axios.post('http://192.168.56.1:8000/api/guests', {
             name: name,
             last_name: last_name,
             age: age,
