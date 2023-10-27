@@ -18,21 +18,21 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Edad</th>
-                                <th>Hora de ingreso</th>
-                                <th>Cantidad de acompañantes</th>
+                                <th class="text-center px-4">Nombre</th>
+                                <th class="text-center px-4">Apellido</th>
+                                <th class="text-center px-4">Edad</th>
+                                <th class="text-center px-4">Hora de ingreso</th>
+                                <th class="text-center px-4">Cantidad de acompañantes</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($guests as $guest)
                                 <tr>
-                                    <td> {{ $guest->name }} </td>
-                                    <td> {{ $guest->last_name }} </td>
-                                    <td> {{ $guest->age }} </td>
-                                    <td> {{ $guest->hour }} </td>
-                                    <td> {{ $guest->companions }} </td>
+                                    <td class="text-center px-4"> {{ $guest->name }} </td>
+                                    <td class="text-center px-4"> {{ $guest->last_name }} </td>
+                                    <td class="text-center px-4"> {{ $guest->age }} </td>
+                                    <td class="text-center px-4"> {{ $guest->hour }} </td>
+                                    <td class="text-center px-4"> {{ $guest->companions }} </td>
                                     <td>
                                         <form action="{{ route('guests.destroy', $guest->id) }}" method="POST">
                                             @csrf
